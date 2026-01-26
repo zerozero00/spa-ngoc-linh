@@ -145,9 +145,33 @@
 
   <!-- Primary actions (Sitelinks aligned) -->
   <div class="buttons">
-    <a class="button btn-directions" href="https://www.google.com/maps/dir/?api=1&destination=21.2133125,105.7958125" target="_blank">📍 Google Maps Directions</a>
-    <a class="button btn-whatsapp" href="https://wa.me/84976347232" target="_blank">💬 Chat on WhatsApp</a>
-    <a class="button btn-messenger" href="https://m.me/loan.vu.NgocLinhSpa" target="_blank">💬 Message on Messenger</a>
+    <a class="button btn-directions"
+	   href="https://www.google.com/maps/dir/?api=1&destination=21.2133125,105.7958125"
+	   target="_blank"
+	   onclick="gtag('event', 'get_directions', {
+	     event_category: 'engagement',
+	     event_label: 'google_maps'
+	   });">
+	   📍 Google Maps Directions
+	</a>
+    <a class="button btn-whatsapp"
+	   href="https://wa.me/84976347232"
+	   target="_blank"
+	   onclick="gtag('event', 'chat_whatsapp', {
+	     event_category: 'engagement',
+	     event_label: 'whatsapp'
+	   });">
+	   💬 Chat on WhatsApp
+	</a>
+    <a class="button btn-messenger"
+	   href="https://m.me/loan.vu.NgocLinhSpa"
+	   target="_blank"
+	   onclick="gtag('event', 'chat_messenger', {
+	     event_category: 'engagement',
+	     event_label: 'messenger'
+	   });">
+	   💬 Message on Messenger
+	</a>
   </div>
 
   <!-- Why travelers choose us -->
@@ -181,3 +205,4 @@
 
 </body>
 </html>
+
