@@ -64,6 +64,42 @@
       transition: opacity 0.2s;
     }
 
+	.sticky-cta {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		align-items: stretch;
+		background: #fff;
+		box-shadow: 0 -2px 15px rgba(0,0,0,0.15);
+		z-index: 999999;
+		padding: 8px 4px;
+		padding-bottom: calc(8px + env(safe-area-inset-bottom)); 
+		box-sizing: border-box;
+	}
+
+	.sticky-cta a {
+		flex: 1;
+		margin: 0 3px;
+		padding: 10px 2px;
+		text-decoration: none;
+		color: white;
+		font-weight: bold;
+		font-size: 12px; 
+		border-radius: 6px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		min-width: 0;
+	}
+	.sticky-cta a span.icon {
+		font-size: 18px;
+		margin-bottom: 2px;
+	}
     .btn-directions { background-color: #007bff; }
     .btn-whatsapp { background-color: #25d366; }
     .btn-messenger { background-color: #0084ff; color: #ffffff; }
@@ -122,6 +158,17 @@
       }
       iframe { height: 300px; }
     }
+	@media screen and (max-width: 350px) {
+		.sticky-cta a {
+			font-size: 10px; /* Hạ font xuống để không bị nhảy dòng */
+		}
+		.sticky-cta a span.icon {
+			font-size: 16px;
+		}
+	}
+	body { 
+		padding-bottom: 90px !important; 
+	}
   </style>
 </head>
 
@@ -142,38 +189,6 @@
 </header>
 
 <div class="container">
-
-  <!-- Primary actions (Sitelinks aligned) -->
-  <div class="buttons">
-    <a class="button btn-directions"
-	   href="https://www.google.com/maps/dir/?api=1&destination=21.2133125,105.7958125"
-	   target="_blank"
-	   onclick="gtag('event', 'get_directions', {
-	     event_category: 'engagement',
-	     event_label: 'google_maps'
-	   });">
-	   📍 Google Maps Directions
-	</a>
-    <a class="button btn-whatsapp"
-	   href="https://wa.me/84976347232"
-	   target="_blank"
-	   onclick="gtag('event', 'chat_whatsapp', {
-	     event_category: 'engagement',
-	     event_label: 'whatsapp'
-	   });">
-	   💬 Chat on WhatsApp
-	</a>
-    <a class="button btn-messenger"
-	   href="https://m.me/loan.vu.NgocLinhSpa"
-	   target="_blank"
-	   onclick="gtag('event', 'chat_messenger', {
-	     event_category: 'engagement',
-	     event_label: 'messenger'
-	   });">
-	   💬 Message on Messenger
-	</a>
-  </div>
-
   <!-- Why travelers choose us -->
     <!-- Why choose us (enhanced cards) -->
   <div class="section">
@@ -202,7 +217,38 @@
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.235204991212!2d105.79362331533111!3d21.21331250658504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313503007f20b72b%3A0xdfb5296b526d59cd!2sSpa%20Ngoc%20Linh!5e0!3m2!1sen!2s!4v1706119347000" loading="lazy"></iframe>
 
 </div>
-
+<!-- Primary actions (Sitelinks aligned) -->
+  <div class="sticky-cta">
+    <a class="button btn-directions"
+	   href="https://www.google.com/maps/dir/?api=1&destination=21.2133125,105.7958125"
+	   target="_blank"
+	   onclick="gtag('event', 'get_directions', {
+	     event_category: 'engagement',
+	     event_label: 'google_maps'
+	   });">
+	   <span class="icon">📍</span>
+       <span>Maps</span>
+	</a>
+    <a class="button btn-whatsapp"
+	   href="https://wa.me/84976347232"
+	   target="_blank"
+	   onclick="gtag('event', 'chat_whatsapp', {
+	     event_category: 'engagement',
+	     event_label: 'whatsapp'
+	   });">
+		<span class="icon">💬</span>
+        <span>WhatsApp</span>
+	</a>
+    <a class="button btn-messenger"
+	   href="https://m.me/loan.vu.NgocLinhSpa"
+	   target="_blank"
+	   onclick="gtag('event', 'chat_messenger', {
+	     event_category: 'engagement',
+	     event_label: 'messenger'
+	   });">
+	   	<span class="icon">💬</span>
+        <span>Messenger</span>
+	</a>
+  </div>
 </body>
 </html>
-
